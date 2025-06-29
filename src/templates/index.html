@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AlterEgoAI - Become Your Favorite Character</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>AlterEgoAI</h1>
+        <p class="description">Upload your photo and your favorite character. Let AI blend them into your ultimate Alter Ego!</p>
+
+        <div class="upload-section">
+            <div class="drop-zone" id="user-drop">
+                <p>Your Photo</p>
+                <input type="file" id="user-image" accept="image/*">
+            </div>
+
+            <div class="drop-zone" id="character-drop">
+                <p>Character Image</p>
+                <input type="file" id="character-image" accept="image/*">
+            </div>
+        </div>
+
+        <button id="generate-btn">Generate My Alter Ego</button>
+
+        <div id="loading" style="display:none;">Generating... Please wait ⏳</div>
+        <div id="result"></div>
+    </div>
+
+    <footer>
+        &copy; 2025 AlterEgoAI. Powered by OpenAI GPT4. <br>
+        Designed by <a href="#">Chakib08</a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
