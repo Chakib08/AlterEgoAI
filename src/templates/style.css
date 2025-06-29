@@ -1,25 +1,36 @@
-body {
+/* Global styles for layout and background */
+html, body {
     margin: 0;
     padding: 0;
+    height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #6a11cb, #2575fc);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: 50px;
     color: #fff;
+    display: flex;
+    flex-direction: column;
 }
 
+/* Flexbox layout: makes footer stick to bottom */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Main container box */
 .container {
     background: #ffffff;
     color: #333;
     padding: 30px;
     border-radius: 15px;
     width: 500px;
+    max-width: 90%;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     text-align: center;
     animation: fadeIn 1s ease-in-out;
+    margin: auto;
 }
 
 @keyframes fadeIn {
@@ -37,6 +48,7 @@ p.description {
     font-size: 15px;
 }
 
+/* Upload section with drop zones */
 .upload-section {
     display: flex;
     justify-content: space-between;
@@ -47,7 +59,7 @@ p.description {
 .drop-zone {
     border: 2px dashed #6a11cb;
     border-radius: 12px;
-    padding: 20px;
+    padding: 5px;
     width: 48%;
     cursor: pointer;
     background-color: #f9f5ff;
@@ -60,6 +72,12 @@ p.description {
     border-color: #9333ea;
 }
 
+.drop-zone p {
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Generate button styling */
 #generate-btn {
     background: linear-gradient(90deg, #6a11cb, #2575fc);
     color: white;
@@ -76,12 +94,14 @@ p.description {
     background: linear-gradient(90deg, #7b2ff7, #2575fc);
 }
 
+/* Loading text */
 #loading {
     margin-top: 15px;
     color: #9333ea;
     font-weight: bold;
 }
 
+/* Result image display */
 #result img {
     margin-top: 20px;
     max-width: 100%;
@@ -89,11 +109,14 @@ p.description {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Footer styling */
 footer {
-    margin-top: 40px;
     text-align: center;
     font-size: 13px;
     color: #eee;
+    padding: 15px 0;
+    background: transparent;
+    margin-top: auto;
 }
 
 footer a {
