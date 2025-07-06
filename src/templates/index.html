@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>AlterEgoAI - Become Your Favorite Character</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <main>
@@ -35,7 +35,7 @@
         Designed by <a href="#">Chakib08</a>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 
 </html>

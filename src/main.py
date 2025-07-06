@@ -3,7 +3,6 @@ from openai import OpenAI
 from dotenv import load_dotenv
 from typing import List
 
-import prompts
 from utils import save
 
 def generate(images_list: List) -> str:
