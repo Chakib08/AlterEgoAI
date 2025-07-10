@@ -26,8 +26,8 @@ document.getElementById('generate-btn').addEventListener('click', async () => {
     const characterImage = document.getElementById('character-image').files[0];
     const promptText = document.getElementById('prompt').value;
 
-    if (!userImage || !characterImage) {
-        alert('Please upload both images.');
+    if (!userImage) {
+        alert('Please upload at least your image.');
         return;
     }
 
@@ -46,7 +46,13 @@ document.getElementById('generate-btn').addEventListener('click', async () => {
         });
 
         const imageUrl = await response.text(); // or .json() if needed
-        document.getElementById('result').innerHTML = `<img src="${imageUrl}" alt="Result Image">`;
+        document.getElementById('result').innerHTML = `
+        <img id="result-img" src="${imageUrl}" alt="Result Image">
+        <br>
+        <a id="download-btn" href="${imageUrl}" download="alter_ego_result.png">
+            <button>Download Image</button>
+        </a>`;
+
     } catch (error) {
         console.error('Error:', error);
         alert('Something went wrong. Please try again.');
