@@ -15,12 +15,19 @@
                 <div class="drop-zone" id="user-drop">
                     <p>Your Photo</p>
                     <input type="file" id="user-image" accept="image/*">
+                    <img id="user-preview" class="preview" alt="User Image Preview">
                 </div>
 
                 <div class="drop-zone" id="character-drop">
                     <p>Character Image</p>
                     <input type="file" id="character-image" accept="image/*">
+                    <img id="character-preview" class="preview" alt="Character Image Preview">
                 </div>
+            </div>
+
+            <div class="prompt-section">
+                <label for="prompt">Enter your magic prompt for more details:</label>
+                <input type="text" id="prompt" name="prompt" placeholder="e.g. Superhero style">
             </div>
 
             <button id="generate-btn">Generate My Alter Ego</button>
@@ -37,5 +44,6 @@
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
+
 
 </html>

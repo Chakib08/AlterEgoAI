@@ -1,30 +1,30 @@
-document.querySelectorAll('.drop-zone').forEach(zone => {
-    const input = zone.querySelector('input');
+function previewImage(inputId, previewId) {
+    const fileInput = document.getElementById(inputId);
+    const preview = document.getElementById(previewId);
+    const file = fileInput.files[0];
 
-    zone.addEventListener('click', () => input.click());
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            preview.src = e.target.result;
+            preview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+    }
+}
 
-    zone.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        zone.classList.add('hover');
-    });
+document.getElementById('user-image').addEventListener('change', () => {
+    previewImage('user-image', 'user-preview');
+});
 
-    zone.addEventListener('dragleave', () => {
-        zone.classList.remove('hover');
-    });
-
-    zone.addEventListener('drop', (e) => {
-        e.preventDefault();
-        zone.classList.remove('hover');
-
-        if (e.dataTransfer.files.length > 0) {
-            input.files = e.dataTransfer.files;
-        }
-    });
+document.getElementById('character-image').addEventListener('change', () => {
+    previewImage('character-image', 'character-preview');
 });
 
 document.getElementById('generate-btn').addEventListener('click', async () => {
     const userImage = document.getElementById('user-image').files[0];
     const characterImage = document.getElementById('character-image').files[0];
+    const promptText = document.getElementById('prompt').value;
 
     if (!userImage || !characterImage) {
         alert('Please upload both images.');
@@ -34,6 +34,7 @@ document.getElementById('generate-btn').addEventListener('click', async () => {
     const formData = new FormData();
     formData.append('user_image', userImage);
     formData.append('character_image', characterImage);
+    formData.append('prompt', promptText);
 
     document.getElementById('loading').style.display = 'block';
     document.getElementById('result').innerHTML = '';
@@ -44,12 +45,11 @@ document.getElementById('generate-btn').addEventListener('click', async () => {
             body: formData
         });
 
-        const imageUrl = await response.text();  // Expecting backend to return a URL or image blob
-
+        const imageUrl = await response.text(); // or .json() if needed
         document.getElementById('result').innerHTML = `<img src="${imageUrl}" alt="Result Image">`;
     } catch (error) {
         console.error('Error:', error);
-        alert('An error occurred while generating the image.');
+        alert('Something went wrong. Please try again.');
     } finally {
         document.getElementById('loading').style.display = 'none';
     }
