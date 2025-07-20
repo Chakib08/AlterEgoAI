@@ -21,7 +21,7 @@ You need upload on **Your image** a picture of you or someone else and in **Char
 You need upload on **Your image** a picture of you or someone else and add a specific prompt for more detail, note that you can also add any image and edit with the gpt-1-image model
 ![Upload 1 image and prompt](doc/imgs/cr7_superman_prompt.png)
 
-## Download the generated image
+### Download the generated image
 You can simply dowload the generated image by hitting the button **Download**
 ![Download](doc/imgs/cr7_superman_download.png)
 
