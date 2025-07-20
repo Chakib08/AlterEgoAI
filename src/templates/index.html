@@ -30,9 +30,13 @@
                 <input type="text" id="prompt" name="prompt" placeholder="e.g. Superhero style">
             </div>
 
-            <button id="generate-btn">Generate My Alter Ego</button>
+            <button id="generate-btn">Generate</button>
 
-            <div id="loading" style="display:none;">Generating... Please wait ⏳</div>
+            <div id="loading-bar" style="display:none;">
+                <p>Generating... Please wait ⏳</p>
+                <progress id="progress" max="100" value="0" style="width: 100%;"></progress>
+              </div>
+              
             <div id="result"></div>
         </div>
     </main>

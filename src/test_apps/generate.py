@@ -17,7 +17,7 @@ def encode_image(file_path):
         base64_image = base64.b64encode(f.read()).decode("utf-8")
     return base64_image
 
-input_img = "cat.jpeg"
+input_img = input("Please, enter full image path:\n")
 
 client = OpenAI()
 

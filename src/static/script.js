@@ -36,8 +36,16 @@ document.getElementById('generate-btn').addEventListener('click', async () => {
     formData.append('character_image', characterImage);
     formData.append('prompt', promptText);
 
-    document.getElementById('loading').style.display = 'block';
+    document.getElementById('loading-bar').style.display = 'block';
     document.getElementById('result').innerHTML = '';
+
+    // Fake progress bar animation
+    let progress = 0;
+    const interval = setInterval(() => {
+        progress += Math.random() * 5;
+        if (progress >= 100) progress = 99;
+        document.getElementById('progress').value = progress;
+    }, 500);
 
     try {
         const response = await fetch('/generate', {
@@ -45,18 +53,19 @@ document.getElementById('generate-btn').addEventListener('click', async () => {
             body: formData
         });
 
-        const imageUrl = await response.text(); // or .json() if needed
+        const imageUrl = await response.text();
         document.getElementById('result').innerHTML = `
-        <img id="result-img" src="${imageUrl}" alt="Result Image">
-        <br>
-        <a id="download-btn" href="${imageUrl}" download="alter_ego_result.png">
-            <button>Download Image</button>
-        </a>`;
-
+            <img id="result-img" src="${imageUrl}" alt="Result Image">
+            <br>
+            <a id="download-btn" href="${imageUrl}" download="alter_ego_result.png">
+                <button>Download Image</button>
+            </a>`;
     } catch (error) {
         console.error('Error:', error);
         alert('Something went wrong. Please try again.');
     } finally {
-        document.getElementById('loading').style.display = 'none';
+        clearInterval(interval);
+        document.getElementById('progress').value = 100;
+        document.getElementById('loading-bar').style.display = 'none';
     }
 });

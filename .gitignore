@@ -196,3 +196,4 @@ cython_debug/
 *.png
 *.jpg
 *.jpeg
+*.webp
