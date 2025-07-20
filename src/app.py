@@ -4,6 +4,7 @@ import base64
 from flask import Flask, redirect, url_for, render_template, request
 from dotenv import load_dotenv
 from typing import List
+
 from utils import save
 
 app = Flask(__name__)
@@ -47,7 +48,6 @@ def generate():
     if not prompt:
         prompt = "Blend these two images into an imaginative alter ego of the person."
 
-
     saved_paths = []
 
     if user_image:
@@ -76,11 +76,8 @@ def generate():
         for f in image_files:
             f.close()
 
-
-
 def main() -> None:
     app.run()
-
 
 if __name__ == "__main__":  
     main()
