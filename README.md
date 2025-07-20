@@ -59,13 +59,15 @@ $ cd AlterEgoAI/
 # Run setup script
 $ source scripts/linux/setup.sh
 $ touch .env && echo "OPENAI_API_KEY=your_key_here" > .env
+$ source venv/bin/activate
 $ python3 src/app.py
 
 # In Windows
 $ cd AlterEgoAI/
 # Run setup script
 $ scripts/windows/setup.bat
-$ touch .env && echo "OPENAI_API_KEY=your_key_here" > .env
+$ echo OPENAI_API_KEY=your_real_key_here > .env
+$ call venv\Scripts\activate.bat
 $ python3 src/app.py
 ```
 
