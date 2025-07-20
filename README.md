@@ -6,7 +6,7 @@
 - [Running the app](#running-the-app)
 
 ## Description
-AlterEgo AI is Web application that use OpenAI GPT-1-Image model to transform you into favorite character (superhero, anime, celebrity), you can use it as to generate your alter ego or as a classic image generator using the prompt
+AlterEgo AI is Web application that uses OpenAI GPT-1-Image model to transform you into favorite character (superhero, anime, celebrity), you can use it as to generate your alter ego or as a classic image generator using the prompt
 
 ![Web UI image](doc/imgs/alterego-ai-web-ui.png)
 
